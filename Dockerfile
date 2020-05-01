@@ -8,6 +8,7 @@ RUN yum install --disableplugin=subscription-manager httpd -y && rm -rf /var/cac
 RUN echo "V3 - The Web Server is Running" > /var/www/html/index.html
 EXPOSE 8080
 RUN rm -r -f /run/httpd
+COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 # Start the service
 CMD mkdir /run/httpd ; PORT=8080 ; /usr/sbin/httpd -D FOREGROUND
 
