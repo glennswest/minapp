@@ -8,6 +8,6 @@ RUN yum install --disableplugin=subscription-manager httpd -y && rm -rf /var/cac
 RUN echo "The Web Server is Running" > /var/www/html/index.html
 EXPOSE 80
 # Start the service
-CMD ["-D", "FOREGROUND"]
-ENTRYPOINT ["/usr/sbin/httpd"]
+CMD mkdir /run/httpd ; /usr/sbin/httpd -D FOREGROUND
+
 
