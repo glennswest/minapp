@@ -9,6 +9,7 @@ RUN echo "V3 - The Web Server is Running" > /var/www/html/index.html
 EXPOSE 8080
 RUN rm -r -f /run/httpd
 RUN mkdir -p /var/logs
+RUN chmod 777 /var/logs
 COPY httpd.conf /etc/httpd/conf/httpd.conf
 # Start the service
 CMD mkdir /run/httpd ; PORT=8080 ; /usr/sbin/httpd -D FOREGROUND
